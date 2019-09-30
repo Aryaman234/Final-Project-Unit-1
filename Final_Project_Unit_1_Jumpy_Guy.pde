@@ -38,7 +38,8 @@ void setup()
   for (int i=0; i<numSpikes; i++)
   {
     spikeY[i]=450;
-    spikeX[i]=(float) random(width, 1500);
+    spikeX[i] = width+ (i* 200+random(-75,50));
+    //spikeX[i]=(float) random(width, 1500);
   }
 }
 
@@ -67,6 +68,7 @@ void draw()
       guyY=1000;
 
       spikeY[i]=1000;
+      spikeX[i]=100000;
       image(crying, cryingX, cryingY, 500, 500);
     }
     if (spikeX[i]<0) {
@@ -81,18 +83,18 @@ void draw()
   int timer= millis()-start;
   text(((int)timer/1000), 40, 100);
 
-  if (timer>30000)
+  if (timer>5000)
   {
     background(0);
     fill(255, 255, 255);
-    text("Time UP", width/2, 400);
+    text("Time UP", 150, 250);
 
     fill(255, 255, 255);
-    text((int)score, width/2, 500);
+    text((int)score, 250, 350);
   }
 }
 
-
+ 
 
 void exist()
 {
